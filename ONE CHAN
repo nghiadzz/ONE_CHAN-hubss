@@ -1,7 +1,8 @@
-repeat task.wait() until game:IsLoaded()
-local TablePlace = {7449423635,2753915549,4442272183}
-if table.find(TablePlace,game.PlaceId) then 
-    loadstring(game:HttpGet"https://raw.githubusercontent.com/nghiadzz/ONE_CHAN-hubss/main/Example.client.lua")() 
-else
-    game.Players.LocalPlayer:Kick("not Support")
-end
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
+local window = DrRayLibrary:Load("DrRay", "Default")
+
+local tab = DrRayLibrary.newTab("Main", "ImageIdHere")
+tab.newButton("The Hunt Brookhaven", "nghia dz", function()
+  loadstring(game:HttpGet"https://raw.githubusercontent.com/nghiadzz/ONE_CHAN-hubss/main/Example.client.lua")()
+
+end)
