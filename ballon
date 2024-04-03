@@ -216,9 +216,9 @@ local startLarge = 0
 for i,v in pairs(getInfo("Inventory").Misc) do
 	if startGifts ~= 0 and startLarge ~= 0 then break end
 	if v.id == "Gift Bag" then
-		startGifts = (v._am or 1)
+		startGifts = (v._am or 0)
 	elseif v.id == "Large Gift Bag" then
-		startLarge = (v._am or 1)
+		startLarge = (v._am or 0)
 	end
 end
 local startTime = os.time()
