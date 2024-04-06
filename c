@@ -1,0 +1,406 @@
+
+	getgenv().TienVe = {
+		toolName = "Slingshot",
+		autoBalloons = true, ----(Auto Open Presents too)
+		autoPresents = true,
+		UltraBoost = true,
+		
+		
+
+		Hop = false,
+		avoidCooldown = true,-- Avoid 268 if multi-accounting : Force stay in server for x time even if no Balloons
+
+		TimeSever = 5, -- Avoid 268 if multi-accounting : Force stay in server for x time even if no Balloons
+
+		sendWeb = true,
+		webURL = "", 
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	ScreenGui = Instance.new("ScreenGui");
+Frame = Instance.new("Frame");
+UIStroke = Instance.new("UIStroke");
+UIGradient = Instance.new("UIGradient");
+UICorner = Instance.new("UICorner");
+TextLabel = Instance.new("TextLabel");
+UIGradient1 = Instance.new("UIGradient");
+TextLabel1 = Instance.new("TextLabel");
+UIGradient2 = Instance.new("UIGradient");
+ImageLabel = Instance.new("ImageButton");
+adiadi = true
+ImageLabel.Activated:Connect(function() 
+   game:GetService"RunService":Set3dRenderingEnabled(not adiadi)
+   adiadi = not adiadi
+end) 
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Parent = game:GetService("CoreGui")
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.5
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.499250829, 0, 0.181700562, 0)
+Frame.Size = UDim2.new(0, 511, 0, 76)
+Frame.Parent = ScreenGui
+UIStroke.Color = Color3.fromRGB(255, 255, 255)
+UIStroke.Thickness = 1.5
+UIStroke.Parent = Frame
+UIGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(15.000000055879354, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(207.00000286102295, 62.00000010430813, 255))
+}
+UIGradient.Parent = UIStroke
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = Frame
+TextLabel.Font = Enum.Font.FredokaOne
+TextLabel.Text = "Dit Me May"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 20
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0199637525, 0, 0.276315689, 0)
+TextLabel.Size = UDim2.new(0, 489, 0, 11)
+TextLabel.Parent = Frame
+UIGradient1.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(15.000000055879354, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(207.00000286102295, 62.00000010430813, 255))
+}
+UIGradient1.Parent = TextLabel
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+TextLabel1.Font = Enum.Font.FredokaOne
+TextLabel1.Text = ""
+TextLabel1.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel1.TextSize = 20
+TextLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel1.BackgroundTransparency = 1
+TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel1.BorderSizePixel = 0
+TextLabel1.Position = UDim2.new(0.0199637525, 0, 0.539473593, 0)
+TextLabel1.Size = UDim2.new(0, 489, 0, 22)
+TextLabel1.Parent = Frame
+UIGradient2.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(15.000000055879354, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(207.00000286102295, 62.00000010430813, 255))
+}
+
+ImageLabel.Image = "rbxassetid://15297431935"
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.448140889, 0, -0.473684222, 0)
+ImageLabel.Size = UDim2.new(0, 50)
+
+
+	repeat task.wait() until game.PlaceId ~= nil
+	repeat task.wait() until game:GetService("Players") and game:GetService("Players").LocalPlayer
+	repeat task.wait() until not game.Players.LocalPlayer.PlayerGui:FindFirstChild("__INTRO")
+
+	if getgenv().TienVe.UltraBoost then
+		TextLabel1.Text = "ULTRABOOST"
+		game:GetService("Workspace").Map:remove()
+	game:GetService("Workspace").MAP:remove()
+	game:GetService("Workspace").__THINGS.Breakables:remove()
+	game:GetService("Workspace").__THINGS.Eggs:remove()
+	game:GetService("Workspace").__THINGS.Cannons:remove()
+	game:GetService("Workspace").__THINGS.Flags:remove()
+	game:GetService("Workspace").__THINGS.Ultimates:remove()
+	
+	----game:GetService("Workspace").__THINGS.__FAKE_GROUND:remove()
+	game:GetService("Workspace").__THINGS.AnimatedBreakables:remove()
+	game:GetService("Workspace").__THINGS.MagicOrbs:remove()
+	game:GetService("Workspace").__THINGS.Chests:remove()
+	game:GetService("RunService"):Set3dRenderingEnabled(true)
+	local Workspace = game:GetService("Workspace")
+		local Terrain = Workspace:WaitForChild("Terrain")
+		Terrain.WaterReflectance = 0
+		Terrain.WaterTransparency = 1
+		Terrain.WaterWaveSize = 0
+		Terrain.WaterWaveSpeed = 0
+
+		local Lighting = game:GetService("Lighting")
+		Lighting.Brightness = 0
+		Lighting.GlobalShadows = false
+		Lighting.FogEnd = 9e100
+		Lighting.FogStart = 0
+
+		sethiddenproperty(Lighting, "Technology", 2)
+		sethiddenproperty(Terrain, "Decoration", false)
+		if v:IsA("BasePart") and not v:IsA("MeshPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+			v.Transparency = 1
+		elseif (v:IsA("Decal") or v:IsA("Texture")) then
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+			v.Lifetime = NumberRange.new(0)
+		elseif v:IsA("Explosion") then
+			v.BlastPressure = 1
+			v.BlastRadius = 1
+		elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+			v.Enabled = false
+		elseif v:IsA("MeshPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+			v.TextureID = 10385902758728957
+		elseif v:IsA("SpecialMesh")  then
+			v.TextureId = 0
+		elseif v:IsA("ShirtGraphic") then
+			v.Graphic = 1
+		elseif (v:IsA("Shirt") or v:IsA("Pants")) then
+			v[v.ClassName .. "Template"] = 1
+		elseif v.Name == "Foilage" and v:IsA("Folder") then
+			v:Destroy()
+		elseif string.find(v.Name, "Tree") or string.find(v.Name, "Water") or string.find(v.Name, "Bush") or string.find(v.Name, "grass") then
+			task.wait()
+			v:Destroy()
+		end
+	end
+		
+
+		for _, v in pairs(game.Players:GetChildren()) do
+			for _, v2 in pairs(v.Character:GetDescendants()) do
+				if v2:IsA("BasePart") or v2:IsA("Decal") then
+					v2.Transparency = 1
+				end
+			end
+		end
+
+		game.Players.PlayerAdded:Connect(function(player)
+			player.CharacterAdded:Connect(function(character)
+				for _, v in pairs(character:GetDescendants()) do
+					if v:IsA("BasePart") or v:IsA("Decal") then
+						v.Transparency = 1
+					end
+				end
+			end)
+		end)
+	
+
+		
+
+		
+		
+		
+
+
+
+		
+		
+		
+	local LargeRAP = 11000; local SmallRAP = 2800
+
+	local RunService = game:GetService("RunService")
+
+	local HttpService = game:GetService("HttpService")
+
+	local Player = game:GetService("Players").LocalPlayer
+
+
+	local RepStor = game:GetService("ReplicatedStorage")
+
+	local Library = require(RepStor.Library)
+
+	local HRP = Player.Character.HumanoidRootPart
+
+	local saveMod = require(RepStor.Library.Client.Save)
+
+	local BreakMod = require(RepStor.Library.Client.BreakableCmds)
+
+	local Slingshot = getsenv(Player.PlayerScripts.Scripts.Game.Misc.Slingshot)
+
+	local RAPValues = getupvalues(require(RepStor.Library).DevRAPCmds.Get)[1]
+
+	hookfunction(require(game.ReplicatedStorage.Library.Client.PlayerPet).CalculateSpeedMultiplier, function() return 250 end)
+
+	function getInfo(name) return saveMod.Get()[name] end 
+
+	function getTool() return Player.Character:FindFirstChild("WEAPON_"..Player.Name, true) end
+
+	function equipTool(toolName) return Library.Network.Invoke(toolName.."_Toggle") end
+
+	function getCurrentZone() return Library["MapCmds"].GetCurrentZone() end
+
+	function sendNotif(msg)
+		local message = {content = msg}
+		local jsonMessage = HttpService:JSONEncode(message)
+		local success, webMessage = pcall(function() 
+			HttpService:PostAsync(getgenv().TienVe.webURL, jsonMessage) 
+		end)
+		if not success then 
+			local response = request({Url = getgenv().TienVe.webURL,Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = jsonMessage})
+		end
+	end
+	function getBalloonUID(zoneName) 
+		for i,v in pairs(BreakMod.AllByZoneAndClass(zoneName, "Chest")) do
+			if v:GetAttribute("OwnerUsername") == Player.Name and string.find(v:GetAttribute("BreakableID"), "Balloon Gift") then
+				return v:GetAttribute("BreakableUID")
+			elseif v:GetAttribute("OwnerUserName") ~= Player.Name and string.find(v:GetAttribute("BreakableID"), "Balloon Gift") then
+				return "Skip"
+			end
+		end
+	end
+	function getServer()
+		local servers = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. tostring(game.PlaceId) .. '/servers/Public?sortOrder=Asc&limit=100')).data
+		local server = servers[Random.new():NextInteger(1, 100)]
+		if server then return server else return getServer() end
+	end
+	function getPresents() for i,v in pairs(Library.Save.Get().HiddenPresents) do 
+			if not v.Found and v.ID then 
+				local success,reason = Library.Network.Invoke("Hidden Presents: Found", v.ID) 
+			end 
+		end 
+	end
+	function getTotalRAP(num)
+		local suffixes = {"", "k", "m", "b"}
+		local suffixInd = 1
+		while num >= 1000 and suffixInd < #suffixes do
+			num = num / 1000
+			suffixInd = suffixInd + 1
+		end
+		local formattedNum
+		if num % 1 == 0 then
+			formattedNum = string.format("%d", num)
+		else
+			formattedNum = string.format("%.1f", num):gsub("%.?0+$", "")
+		end
+		return formattedNum .. suffixes[suffixInd]
+	end
+	-- AUTO ORB
+	local autoOrbConnection = nil
+	local autoLootBagConnection = nil
+	for i, v in workspace.__THINGS.Orbs:GetChildren() do
+		Library.Network.Fire("Orbs: Collect",{tonumber(v.Name)})
+		Library.Network.Fire("Orbs_ClaimMultiple",{[1]={[1]=v.Name}})
+		task.wait()
+		v:Destroy()
+	end
+	for i, v in workspace.__THINGS.Lootbags:GetChildren() do
+		Library.Network.Fire("Lootbags_Claim",{v.Name})
+		task.wait()
+		v:Destroy()
+	end
+	autoOrbConnection = workspace.__THINGS.Orbs.ChildAdded:Connect(function(v)
+		Library.Network.Fire("Orbs: Collect",{tonumber(v.Name)})
+		Library.Network.Fire("Orbs_ClaimMultiple",{[1]={[1]=v.Name}})
+		task.wait()
+		v:Destroy()
+	end)
+	autoLootBagConnection = workspace.__THINGS.Lootbags.ChildAdded:Connect(function(v)
+		Library.Network.Fire("Lootbags_Claim",{v.Name})
+		task.wait()
+		v:Destroy()
+	end)
+	local startBalloons = #workspace.__THINGS.BalloonGifts:GetChildren()
+	if #workspace.__THINGS.BalloonGifts:GetChildren() <= 1 then
+		repeat game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, getServer().id, Player) task.wait() until not game.PlaceId
+
+	end
+	local startGifts = 0
+	local startLarge = 0
+	for i,v in pairs(getInfo("Inventory").Misc) do
+		if startGifts ~= 0 and startLarge ~= 0 then break end
+		if v.id == "Gift Bag" then
+			startGifts = (v._am or 1)
+		elseif v.id == "Large Gift Bag" then
+			startLarge = (v._am or 1)
+		end
+	end
+	local startTime = os.time()
+	while getgenv().TienVe.autoBalloons do task.wait()
+		TextLabel1.Text = "Find Balloons"
+		if getgenv().TienVe.autoPresents then getPresents() end
+		for _,Balloon in pairs(Library.Network.Invoke("BalloonGifts_GetActiveBalloons")) do task.wait()
+			if Balloon.Id then
+				while Library.Network.Invoke("BalloonGifts_GetActiveBalloons")[Balloon.Id] do task.wait()
+					if not getTool() then
+						equipTool(getgenv().TienVe.toolName) 
+						end
+					local breakableId = getBalloonUID(getCurrentZone())
+					if breakableId == "Skip" then break end
+					if breakableId then
+						repeat
+							task.wait()
+						HRP.CFrame = CFrame.new(Balloon.LandPosition)
+						TextLabel1.Text = "Fire Gift"
+						game:GetService("ReplicatedStorage").Network.GiftBag_Open:InvokeServer("Gift Bag")
+						Library.Network.Fire("Breakables_PlayerDealDamage", breakableId)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+					until not getBalloonUID()
+					elseif not Balloon.Popped then
+						HRP.CFrame = CFrame.new(Balloon.LandPosition)
+						Slingshot.fireWeapon()
+						Library.Network.Fire("BalloonGifts_BalloonHit", Balloon.Id)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+						TextLabel1.Text = "Hit Balloon"   
+					end
+				end
+			end
+		end
+		local currentTime = os.time()
+		if getgenv().TienVe.Hop then
+			TextLabel1.Text = "Hopping"
+			if not getgenv().TienVe.avoidCooldown or (getgenv().TienVe.avoidCooldown and currentTime - startTime >= getgenv().TienVe.TimeSever) then
+				local endGifts = 0
+				local endLarge = 0 
+				for i,v in pairs(getInfo("Inventory").Misc) do
+					if endGifts ~= 0 and endLarge ~= 0 then break end
+					if v.id == "Gift Bag" then
+						endGifts = (v._am or 1)
+					elseif v.id == "Large Gift Bag" then
+						endLarge = (v._am or 1)
+					end
+				end
+				if getgenv().TienVe.sendWeb then
+					sendNotif("```asciidoc\n[ "..Player.Name.." Earned ]\n‐ "..tostring(endGifts - startGifts).." Small :: "..tostring(getTotalRAP((endGifts - startGifts) * SmallRAP)).." \n‐ "..tostring(endLarge - startLarge).." Large :: "..tostring(getTotalRAP((endLarge - startLarge) * LargeRAP)).." \n\n[ Total / Server ]\n‐ "..tostring(endGifts).." Small :: "..tostring(getTotalRAP(endGifts * SmallRAP)).." \n‐ "..tostring(endLarge).." Large :: "..tostring(getTotalRAP(endLarge * LargeRAP)).." \n- took "..tostring(currentTime - startTime).." seconds \n- had "..tostring(startBalloons).." balloons\n```")
+				end
+				repeat 
+					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, getServer().id, Player) task.wait() until not game.PlaceId
+					
+				end
+		end
+	end
+	
+
+
+	if startBalloons == 3 then
+		game:GetService("Workspace").__THINGS.BalloonGifts:WaitForChild("Model"):remove()
+	end
+
+
+
+	
+
+
+
+
+
+
+
+		
+
+	
+
+
